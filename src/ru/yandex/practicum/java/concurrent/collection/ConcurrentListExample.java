@@ -7,13 +7,13 @@ public class ConcurrentListExample {
 
     public static void main(String[] args) throws InterruptedException {
         List<Integer> list =
-//                new ArrayList<>();
+                new ArrayList<>();
 //                Collections.synchronizedList(new ArrayList<>());
 //                new Vector<>();
-                new CopyOnWriteArrayList<>();
+//                new CopyOnWriteArrayList<>();
 
         Runnable add = () -> {
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 1000; i++) {
                 list.add(i);
             }
         };

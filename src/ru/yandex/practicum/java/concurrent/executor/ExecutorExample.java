@@ -21,7 +21,7 @@ public class ExecutorExample {
     }
 
     public static void main(String[] args) throws InterruptedException {
-        ExecutorService pool = Executors.newVirtualThreadPerTaskExecutor();
+        ExecutorService pool = Executors.newFixedThreadPool(2);
         Future<Double> res1 = pool.submit(new Power(2));
         Future<Double> res2 = pool.submit(new Power(3));
         pool.shutdown();

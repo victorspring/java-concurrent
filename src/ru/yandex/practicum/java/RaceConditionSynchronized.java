@@ -9,23 +9,19 @@ public class RaceConditionSynchronized {
     private static int count = 0;
 
     public static void main(String[] args) throws InterruptedException {
-        Thread t0 = Thread.startVirtualThread(() -> {
+        Thread t0 = new Thread(() -> {
             for (int i = 1; i <= LIMIT; i++) {
-                synchronized (monitor) {
                     count++;
-                }
             }
         });
-        Thread t1 = Thread.startVirtualThread(() -> {
+        Thread t1 = new Thread(() -> {
             for (int i = 1; i <= LIMIT; i++) {
-                synchronized (monitor) {
                     count--;
-                }
             }
         });
 
-//        t0.start();
-//        t1.start();
+        t0.start();
+        t1.start();
 
         t0.join();
         t1.join();

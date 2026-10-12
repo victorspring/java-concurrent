@@ -10,15 +10,15 @@ public class RaceConditionVirtual {
 
         Thread t0 = Thread.ofVirtual().start(() -> {
             for (int i = 0; i < LIMIT; i++) {
-//                count++;
-                inc();
+                count++;
+//                inc();
             }
         });
 
         Thread t1 = Thread.ofVirtual().start(() -> {
             for (int i = 0; i < LIMIT; i++) {
-//                count--;
-                dec();
+                count--;
+//                dec();
             }
         });
 

@@ -19,11 +19,6 @@ public class ThreadExample {
         t1.start();
 
         Runnable r = () -> {
-            try {
-                t1.join();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
             for (int i = 1; i <= LIMIT; i++) {
                 System.out.printf("%s: %d%n", Thread.currentThread().getName(), i);
             }
